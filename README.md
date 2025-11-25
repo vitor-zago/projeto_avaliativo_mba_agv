@@ -1,6 +1,6 @@
-# projeto_ibmec_01
+# projeto_avaliativo_mba_agv
 Projeto para Avaliação da Disciplina de Engenharia de Software, Prof. Luis Fernando Lufe Mello Barreto - MBA/IBMEC
-Estudantes: Vitor Zago, Anna Lara, Giselle Dias, 
+Estudantes: Anna Lara, Giselle Dias e Vitor Zago
 
 Trata-se de uma aplicação **FastAPI** para gerenciar o **tempo de acesso dos clientes**, permitindo consultar tempo restante, aplicar acréscimo através de tickets e reinicializar o tempo de uso.
 
@@ -163,6 +163,7 @@ A função calcular_tempo_restante() recalcula o tempo restante usando:
 Tempo inicial
 Tempo decorrido desde o start
 Tickets válidos podem adicionar minutos ao tempo restante.
+É possível adicionar de deletar tickets.
 * A “amostra de dados” é limitada e carregada em memória, para fins de demonstração.
 
 ## ⇒ Como Executar o Projeto
