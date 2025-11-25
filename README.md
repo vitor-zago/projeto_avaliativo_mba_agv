@@ -53,11 +53,15 @@ Retorna informações detalhadas de um único cliente:
 }
 ```
 
-## POST – /clientes/{cliente_id}/calcular_tempo
+### EndPoint 3 – `/clientes/{cliente_id}/calcular_tempo`
 
 Aplica um acréscimo de tempo baseado em um ticket verificado pela classe TicketAcesso.
 
-Corpo da requisição0
+### ***Método***
+`POST /clientes/{cliente_id}/calcular_tempo`
+
+
+Corpo da requisição
 {
   "ticket": "ABC123"
 }
@@ -75,14 +79,68 @@ Corpo da requisição0
 }
 ```
 
-## POST – /clientes/{cliente_id}/reset_tempo
+### EndPoint 4 – `/clientes/{cliente_id}/reset_tempo`
 
-Endpoint utilizado para testes, permitindo redefinir o tempo total de um cliente.
+Permite redefinir o tempo total de um cliente (para testes).
+
+### ***Método***
+`POST /clientes/{cliente_id}/reset_tempo`
 
 Exemplo
 ```json
 {
   "novo_tempo": 60
+}
+```
+
+### EndPoint 5 – `/tickets`
+
+Cria um novo ticket personalizado para acréscimo de tempo.
+
+### ***Método***
+
+`POST /tickets`
+
+Corpo da Requisição
+
+{
+  "codigo": "MEUTICKET10",
+  "valor": 10
+}
+
+### ***Exemplo de Retorno***
+
+```json
+{
+  "mensagem": "Novo ticket 'MEUTICKET10' criado com sucesso.",
+  "valor_minutos": 10,
+  "tickets_disponiveis": {
+    "VIP": 15,
+    "PREMIUM": 30,
+    "MEUTICKET10": 10
+  }
+}
+```
+
+### EndPoint 6 – `/tickets/{codigo_ticket}`
+
+Remove um ticket personalizado.
+
+### ***Método***
+`DELETE /tickets/{codigo_ticket}`
+
+Exemplo
+ DELETE /tickets/MEUTICKET10
+
+### ***Exemplo de Retorno***
+
+```json
+{
+  "mensagem": "Ticket 'MEUTICKET10' removido com sucesso.",
+  "tickets_disponiveis_atualizados": {
+    "VIP": 15,
+    "PREMIUM": 30
+  }
 }
 ```
 
@@ -105,7 +163,7 @@ A função calcular_tempo_restante() recalcula o tempo restante usando:
 Tempo inicial
 Tempo decorrido desde o start
 Tickets válidos podem adicionar minutos ao tempo restante.
-* O “banco de dados” é limitado e carregado em memória, para fins de demonstração.
+* A “amostra de dados” é limitada e carregada em memória, para fins de demonstração.
 
 ## ⇒ Como Executar o Projeto
 1. Instale as dependências
